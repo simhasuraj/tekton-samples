@@ -10,4 +10,4 @@ spec:
       image: python      
       script: |
         #!/usr/bin/env python3
-        print("Hello from Python!")
+        print("Hello from Python!!!")
