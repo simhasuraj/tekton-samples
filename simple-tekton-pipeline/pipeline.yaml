@@ -1,11 +1,15 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: sample-pipeline
+  name: clone-read
 spec:
-  params: 
-  tasks:
-    - name: sample-task
-      taskRef:
-        name: sample-task
-      params:
+  params:
+    - name: repo-url
+      type: string
+      description: https://github.com/simhasuraj/my_first_task
+      tasks:
+      - name: fetch-source
+        taskRef: git-clone
+        params:
+        - name: url
+          value: $(params.repo-url)
