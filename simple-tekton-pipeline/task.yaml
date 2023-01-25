@@ -1,13 +1,25 @@
 apiVersion: tekton.dev/v1beta1
-kind: Task
+kind: PipelineRun
 metadata:
-  name: sample-task
+  generateName: clone-read-run-
 spec:
+  pipelineRef:
+    name: clone-read
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
+  workspaces:
+  - name: shared-data
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+  - name: git-credentials
+    secret:
+      secretName: git-credentials
   params:
-  resources:
-  steps:
-    - name: sample-python-task
-      image: python      
-      script: |
-        #!/usr/bin/env python3
-        print("Hello from Python!!!")
+  - name: repo-url
+    value: https://github.com/simhasuraj/my_first_task
