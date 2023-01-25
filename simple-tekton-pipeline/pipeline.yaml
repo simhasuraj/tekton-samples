@@ -4,12 +4,20 @@ metadata:
   name: clone-read
 spec:
   params:
-    - name: repo-url
-      type: string
-      description: https://github.com/simhasuraj/my_first_task
-      tasks:
-      - name: fetch-source
-        taskRef: git-clone
-        params:
-        - name: url
-          value: $(params.repo-url)
+  - name: repo-url
+    type: string
+    description: https://github.com/simhasuraj/my_first_task
+workspaces:
+- name: shared-data
+  description: | 
+    This workspace contains the cloned repo files, so they can be read by the next task.
+tasks:
+- name: fetch-source
+  taskRef: 
+    name: git-clone
+  workspaces:
+  - name: output
+    workspace: shared-data
+  params:
+  - name: url
+    value: $(params.repo-url)
