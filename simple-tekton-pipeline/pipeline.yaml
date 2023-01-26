@@ -1,17 +1,26 @@
 apiVersion: tekton.dev/v1beta1
-kind: PipelineRun
+kind: Pipeline
 metadata:
-  name: git-clone-demo-pr
+  name: clone-read
 spec:
-  pipelineRef:
-    resolver: git
-    params:
-    - name: url
-      value: https://github.com/simhasuraj/my_first_task
-    - name: revision
-      value: main
-    - name: pathInRepo
-      value: pipeline/simple/0.1/simple.yaml
+  description: | 
+    This pipeline clones a git repo, then echoes the README file to the stdout.
   params:
-  - name: name
-    value: Ranni
+  - name: repo-url
+    type: string
+    description: https://github.com/simhasuraj/my_first_task
+workspaces:
+- name: shared-data
+  description: | 
+    This workspace contains the cloned repo files, so they can be read by the
+    next task.
+tasks:
+- name: fetch-source
+  taskRef:
+    name: git-clone
+  workspaces:
+  - name: output
+    workspace: shared-data
+  params:
+  - name: url
+    value: $(params.repo-url)
