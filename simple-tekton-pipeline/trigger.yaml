@@ -9,10 +9,10 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: git-clone-demo-pr
+      name: gclone-read-run-
     spec:
       pipelineRef:
-        name: git-clone-demo-pr
+        name: clone-read
       params:
 
 ---
