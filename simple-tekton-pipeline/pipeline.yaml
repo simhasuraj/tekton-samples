@@ -1,30 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: clone-read
+  name: sample-pipeline
 spec:
-  params:
-  - name: repo-url
-    type: string
-    description: https://github.com/simhasuraj/my_first_task
-workspaces:
-- name: shared-data
-  description: | 
-    This workspace contains the cloned repo files, so they can be read by the next task.
-tasks:
-- name: fetch-source
-  taskRef: 
-    name: git-clone
-  workspaces:
-  - name: output
-    workspace: shared-data
-  params:
-  - name: url
-    value: $(params.repo-url)
-- name: show-readme
-  runAfter: ["fetch-source"]
-  taskRef:
-    name: show-readme
-  workspaces:
-  - name: source
-    workspace: shared-data
+  params: 
+  tasks:
+    - name: sample-task
+      taskRef:
+        name: sample-task
+      params:
