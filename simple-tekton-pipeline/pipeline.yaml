@@ -1,11 +1,17 @@
 apiVersion: tekton.dev/v1beta1
-kind: Pipeline
+kind: PipelineRun
 metadata:
-  name: sample-pipeline
+  name: git-clone-demo-pr
 spec:
-  params: 
-  tasks:
-    - name: sample-task
-      taskRef:
-        name: sample-task
-      params:
+  pipelineRef:
+    resolver: git
+    params:
+    - name: url
+      value: https://github.com/simhasuraj/my_first_task
+    - name: revision
+      value: main
+    - name: pathInRepo
+      value: pipeline/simple/0.1/simple.yaml
+  params:
+  - name: name
+    value: Ranni
