@@ -7,7 +7,7 @@ spec:
   params:
   resourcetemplates:
   - apiVersion: tekton.dev/v1beta1
-    kind: PipelineRun
+    kind: Pipeline
     metadata:
       name: git-clone-demo-pr
     spec:
