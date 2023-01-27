@@ -7,14 +7,6 @@ spec:
   resources:
   steps:
     - name: sample-python-task
-      image: openjdk   
+      image: python 
       script: |
-        // Your First Program
-
-        class HelloWorld 
-        {
-          public static void main(String[] args)
-          {
-            System.out.println("Hello, World!"); 
-          }
-        }   
+        print("hello")  
