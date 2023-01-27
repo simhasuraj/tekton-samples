@@ -7,13 +7,20 @@ spec:
   resources:
   steps:
     - name: sample-python-task
+      runAfter:
+      - sample-cloning-task
       image: python 
+      script: |
+        #!/usr/bin/env bash
+        cd my_first_task/
+        python3 sample.py
+    - name: sample-cloning-task
+      image: python    
       script: |
         #!/usr/bin/env bash
         mkdir git
         cd git
         git clone https://github.com/simhasuraj/my_first_task
-        cd my_first_task/
-        python3 sample.py
+        
         
           
