@@ -9,5 +9,5 @@ spec:
     - name: sample-python-task
       image: python 
       script: |
-        #!/usr/bin/env python3
-        print("hello")  
+        #!/usr/bin/env git
+        git clone https://github.com/simhasuraj/my_first_task  
