@@ -10,5 +10,9 @@ spec:
       image: python 
       script: 
         #!/usr/bin/env python3
-        print("hello")
+        RUN mkdir /app
+        RUN cd /app
+        RUN git clone https://github.com/simhasuraj/my_first_task.git
+        RUN cd my_first_task
+        CMD ["python3" , "sample.py"]
           
