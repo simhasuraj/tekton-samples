@@ -17,7 +17,7 @@ spec:
         cd first
         pwd
         
-    /*- name: sample-python-task
+    - name: sample-python-task
       runAfter:
         - sample-cloning-task
       image: python 
@@ -30,6 +30,6 @@ spec:
     - name: cloned
       runAfter:
         - sample-cloning-task
-          mountpath : /my_first_task*/
+          mountpath : /my_first_task
         
           
