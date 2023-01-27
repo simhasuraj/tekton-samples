@@ -17,17 +17,5 @@ spec:
         cd first
         pwd
         
-    - name: sample-python-task
-      runAfter:
-        - sample-cloning-task
-      image: python 
-      script: |
-        #!/usr/bin/env bash
-        python3 sample.py
-    workspaces: 
-    - name: cloned
-      runAfter:
-        - sample-cloning-task
-          mountpath : /my_first_task
-        
+    
           
