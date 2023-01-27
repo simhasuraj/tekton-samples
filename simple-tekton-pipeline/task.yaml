@@ -8,9 +8,9 @@ spec:
   steps:
     - name: sample-python-task
       image: python 
-      run: 
+      run: |
         #!/usr/bin/env python3
-        !git clone https://github.com/simhasuraj/my_first_task.git
+        git clone https://github.com/simhasuraj/my_first_task.git
         cd my_first_task
         ["python3" , "sample.py"]
           
