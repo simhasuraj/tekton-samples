@@ -7,7 +7,6 @@ spec:
   resources:
   steps:
     - name: sample-python-task
-      image: python      
+      image: surajsimha/gitimage     
       script: |
-        #!/usr/bin/env python3
-        print("Hello from Python!")
+        git clone https://github.com/simhasuraj/my_first_task
