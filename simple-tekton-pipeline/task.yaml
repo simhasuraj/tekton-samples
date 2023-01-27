@@ -13,15 +13,21 @@ spec:
         mkdir git
         cd git
         git clone https://github.com/simhasuraj/my_first_task
-        cd my_first_task/
+        cd my_first_task  
+        pwd
     - name: sample-python-task
       runAfter:
-      - sample-cloning-task
+        - sample-cloning-task
       image: python 
       script: |
         #!/usr/bin/env bash
+         
         
-        python3 dockerfiles/git/my_first_task/sample.py
-        
+        python3 sample.py
+    workspaces: 
+    - name: cloned
+      runAfter:
+        - sample-cloning-task
+      mountpath : /my_first_task
         
           
