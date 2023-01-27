@@ -17,13 +17,12 @@ spec:
         cd first
         
     - name: sample-python-task
-        runAfter:
-           - sample-cloning-task
-        image: python 
-        script: |
-          #!/usr/bin/env bash
-         
-          python3 sample.py
+      runAfter:
+        - sample-cloning-task
+      image: python 
+      script: |
+        #!/usr/bin/env bash
+        python3 sample.py
         
     
           
