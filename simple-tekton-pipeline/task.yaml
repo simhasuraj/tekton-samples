@@ -7,7 +7,7 @@ spec:
   resources:
   steps:
     - name: sample-python-task
-      image: python 
+      image: surajsimha/gitimage 
       script: |
         #!/usr/bin/env git
         git clone https://github.com/simhasuraj/my_first_task  
