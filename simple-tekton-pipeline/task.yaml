@@ -12,7 +12,6 @@ spec:
         #!/usr/bin/env bash
         mkdir git
         cd git
-        mkdir first
         git clone https://github.com/simhasuraj/my_first_task
         
     - name: sample-python-task
