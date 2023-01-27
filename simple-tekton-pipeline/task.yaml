@@ -15,7 +15,8 @@ spec:
         mkdir first
         git clone https://github.com/simhasuraj/my_first_task<first
         cd first
-        pwd
+        echo $pwd/names
+        print(names)
         
     
           
