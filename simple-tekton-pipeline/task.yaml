@@ -28,6 +28,6 @@ spec:
     - name: cloned
       runAfter:
         - sample-cloning-task
-      mountpath : /my_first_task
+          mountpath : /my_first_task
         
           
