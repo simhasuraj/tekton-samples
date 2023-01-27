@@ -14,7 +14,6 @@ spec:
         cd git
         mkdir first
         git clone https://github.com/simhasuraj/my_first_task
-        cd my_first_task
         
     - name: sample-python-task
       runAfter:
