@@ -20,7 +20,8 @@ spec:
       image: python 
       script: |
         #!/usr/bin/env bash
-        python3 sample.py
+        
+        python3 /git/my_first_task/sample.py
         
         
           
