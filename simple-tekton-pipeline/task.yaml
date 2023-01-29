@@ -5,6 +5,8 @@ metadata:
 spec:
   params:
   resources:
+  workspaces: 
+    - name : cloned
   steps:
     - name: sample-cloning-task
       image: python    
@@ -12,20 +14,28 @@ spec:
         #!/usr/bin/env bash
         mkdir git
         cd git
-        git clone https://github.com/simhasuraj/my_first_task > $(workspaces.messages.path)/my_first_task
-   
+        git clone https://github.com/simhasuraj/my_first_task > $(workspaces.cloned.path)/my_first_task
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: sample-python-task
+spec:
+  params:
+  resources:
+  workspaces: 
+    - name : cloned
+  steps:
     - name: sample-python-task
-      runAfter:
-        - sample-cloning-task
-      image: python 
+      image: python    
       script: |
-        #python3 sample.py
-        python3 $(workspaces.message.path)/sample.py
-  
-  workspaces:
-    - name: messages
-      description: The folder where we write the message to
-      mountPath: /workspace/git
+        #!/usr/bin/env bash
+        cat $(workspaces.cloned.path)/my_first_task
+        ls
+        
+
+
 
         
     
