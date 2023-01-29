@@ -11,6 +11,15 @@ spec:
     metadata:
       name: sample-pipeline-run
     spec:
+      workspaces:
+        - name: cloned
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
       pipelineRef:
         name: sample-pipeline
       params:
