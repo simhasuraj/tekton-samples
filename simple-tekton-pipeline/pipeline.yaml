@@ -29,13 +29,16 @@ kind: PipelineRun
 metadata:
   name: sample-pipeline-run
 spec:
-  pipelineRef: sample-pipeline
   workspaces:
-  - name: cloned
-    volumeClaimTemplate:
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
+    - name: cloned
+      volumeClaimTemplate:
+        metadata:
+          name: pipeline-pvc
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+  pipelineRef:
+    name: sample-pipeline
