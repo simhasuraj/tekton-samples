@@ -6,6 +6,7 @@ spec:
   params:
   workspaces:
     - name: cloned
+      optional: true
   tasks:
     - name: sample-task
       taskRef:
