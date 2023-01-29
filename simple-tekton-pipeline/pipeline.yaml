@@ -3,7 +3,9 @@ kind: Pipeline
 metadata:
   name: sample-pipeline
 spec:
-  params: 
+  params:
+  workspaces:
+    - name: cloned
   tasks:
     - name: sample-task
       taskRef:
