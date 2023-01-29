@@ -14,7 +14,8 @@ spec:
         #!/usr/bin/env bash
         mkdir git
         cd git
-        git clone https://github.com/simhasuraj/my_first_task.git $(workspaces.cloned.path)/file
+        git clone https://github.com/simhasuraj/my_first_task.git first
+        #git clone https://github.com/simhasuraj/my_first_task.git $(workspaces.cloned.path)/file
         
 ---
 
@@ -32,7 +33,8 @@ spec:
       image: python    
       script: |
         #!/usr/bin/env bash
-        python3 $(workspaces.cloned.path)/file/sample.py
+        python3 first/sample.py
+        #python3 $(workspaces.cloned.path)/file/sample.py
         
         
 
