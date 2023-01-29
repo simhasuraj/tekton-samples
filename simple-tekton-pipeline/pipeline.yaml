@@ -21,24 +21,4 @@ spec:
       - name: cloned
       runAfter:
         - sample-task
-      
----
-
-apiVersion: tekton.dev/v1beta1
-kind: PipelineRun
-metadata:
-  name: sample-pipeline-run
-spec:
-  workspaces:
-    - name: cloned
-      volumeClaimTemplate:
-        metadata:
-          name: pipeline-pvc
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 1Gi
-  pipelineRef:
-    name: sample-pipeline
+   
