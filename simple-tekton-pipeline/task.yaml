@@ -10,29 +10,22 @@ spec:
       image: python    
       script: |
         #!/usr/bin/env bash
-        mkdir first
-        cd first
         mkdir git
         cd git
-        git clone https://github.com/simhasuraj/my_first_task > first
-        ls
-        pwd
-      
+        git clone https://github.com/simhasuraj/my_first_task > $(workspaces.messages.path)/my_first_task
    
     - name: sample-python-task
       runAfter:
         - sample-cloning-task
       image: python 
       script: |
-        #!/usr/bin/env bash
-        cd /
-        cd first
-        cd git
-        #ls
-        #pwd
-        python3 sample.py
-        #python3 $(workspaces.cloned.path)/sample.py
-        
+        #python3 sample.py
+        python3 $(workspaces.message.path)/sample.py
+  
+    workspaces:
+    - name: messages
+      description: The folder where we write the message to
+      mountPath: /git/
 
         
     
