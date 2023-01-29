@@ -9,3 +9,7 @@ spec:
       taskRef:
         name: sample-task
       params:
+    - name: sample-python-task
+      taskRef: 
+        name: sample-python-task
+      params:
