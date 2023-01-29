@@ -14,7 +14,7 @@ spec:
         #!/usr/bin/env bash
         mkdir git
         cd git
-        git clone https://github.com/simhasuraj/my_first_task.git ./$(workspaces.cloned.path)/file
+        git clone https://github.com/simhasuraj/my_first_task.git .$(workspaces.cloned.path)/file
         #cd my_first_task
         #cat sample.py>$(workspaces.cloned.path)/file.py
         
