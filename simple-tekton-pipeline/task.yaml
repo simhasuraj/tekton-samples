@@ -15,7 +15,8 @@ spec:
         mkdir git
         cd git
         git clone https://github.com/simhasuraj/my_first_task > first
-        
+        ls
+        pwd
       
    
     - name: sample-python-task
@@ -26,6 +27,7 @@ spec:
         #!/usr/bin/env bash
         cd first
         ls
+        pwd
         #python3 sample.py
         #python3 $(workspaces.cloned.path)/sample.py
         
