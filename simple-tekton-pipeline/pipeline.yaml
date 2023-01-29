@@ -6,16 +6,21 @@ spec:
   params:
   workspaces:
     - name: cloned
-      optional: true
   tasks:
     - name: sample-task
       taskRef:
         name: sample-task
       params:
+      workspaces:
+      - name: cloned
     - name: sample-python-task
       taskRef: 
         name: sample-python-task
       params:
+      workspaces:
+      - name: cloned
+      runAfter:
+        - sample-task
       
 ---
 
