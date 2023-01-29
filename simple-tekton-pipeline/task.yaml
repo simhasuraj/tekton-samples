@@ -22,7 +22,7 @@ spec:
         #python3 sample.py
         python3 $(workspaces.message.path)/sample.py
   
-    workspaces:
+  workspaces:
     - name: messages
       description: The folder where we write the message to
       mountPath: /git/
