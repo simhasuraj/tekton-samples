@@ -33,7 +33,7 @@ spec:
       image: python    
       script: |
         #!/usr/bin/env bash
-        python3 first/sample.py
+        python3 $(first)/sample.py
         #python3 $(workspaces.cloned.path)/file/sample.py
         
         
