@@ -5,9 +5,6 @@ metadata:
 spec:
   params:
   resources:
-  workspaces:
-  - name: cloned
-    mountPath: /git/my_first_task
   steps:
     - name: sample-cloning-task
       image: python    
@@ -23,7 +20,12 @@ spec:
       image: python 
       script: |
         #!/usr/bin/env bash
-        python3 $(workspaces.cloned.path)/sample.py
+        mkdir git
+        cd git
+        git clone https://github.com/simhasuraj/my_first_task
+        cd my_first_task
+        python3 sample.py
+        #python3 $(workspaces.cloned.path)/sample.py
         
 
         
