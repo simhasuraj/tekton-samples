@@ -24,16 +24,16 @@ spec:
         #!/usr/bin/env bash
         python3 $(workspaces.cloned.value)/sample.py
         
-  workspaces:
- - name: cloned
-    volumeClaimTemplate:
-      spec:
-        accessModes:
+workspaces:
+- name: cloned
+  volumeClaimTemplate:
+    spec:
+      accessModes:
         - ReadWriteOnce
         resources:
           requests:
             storage: 1Gi
-  params:
+params:
   - name: repo-url
     value: /git/my_first_task
         
