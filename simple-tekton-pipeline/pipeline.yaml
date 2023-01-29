@@ -16,3 +16,21 @@ spec:
       taskRef: 
         name: sample-python-task
       params:
+      
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: sample-pipeline-run
+spec:
+  pipelineRef: sample-pipeline
+  workspaces:
+  - name: cloned
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
