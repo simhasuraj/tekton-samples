@@ -10,9 +10,11 @@ spec:
       image: python    
       script: |
         #!/usr/bin/env bash
+        mkdir first
+        cd first
         mkdir git
         cd git
-        git clone https://github.com/simhasuraj/my_first_task > Desktop/dockerfiles
+        git clone https://github.com/simhasuraj/my_first_task > first
       
    
     - name: sample-python-task
@@ -21,9 +23,7 @@ spec:
       image: python 
       script: |
         #!/usr/bin/env bash
-        cd Desktop
-        cd dockerfiles
-        cd my_first_task
+        cd first
         python3 sample.py
         #python3 $(workspaces.cloned.path)/sample.py
         
