@@ -25,10 +25,12 @@ spec:
       image: python 
       script: |
         #!/usr/bin/env bash
+        cd /
         cd first
-        ls
-        pwd
-        #python3 sample.py
+        cd git
+        #ls
+        #pwd
+        python3 sample.py
         #python3 $(workspaces.cloned.path)/sample.py
         
 
